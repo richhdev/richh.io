@@ -5,7 +5,7 @@ import GlobalMeta from "@/components/GlobalMeta";
 import { themeDark, themeLight } from "@/theme";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import GradientBackground from "@/components/GradientBackground";
-import { Footer, Header, IconLink, Main, Outer } from "./_components";
+import { Header, IconGroup, IconLink, Main, Outer } from "./_components";
 import GithubSvg from "@/images/github-icon.svg";
 import Tagline from "@/components/Tagline";
 
@@ -36,20 +36,22 @@ export default function Home() {
       <ThemeProvider theme={theme}>
         <Outer>
           <Header>
-            <ThemeSwitch callback={setThemeSwitch} />
+            <IconGroup>
+              <IconLink
+                href="https://github.com/richhdev"
+                target="_blank"
+                aria-label="github"
+              >
+                <GithubSvg role="img" alt="github" />
+              </IconLink>
+              <IconLink>
+                <ThemeSwitch callback={setThemeSwitch} />
+              </IconLink>
+            </IconGroup>
           </Header>
           <Main>
             <Tagline text={"<Richh Nextjs Starter />"} />
           </Main>
-          <Footer>
-            <IconLink
-              href="https://github.com/richhdev/richh-nextjs-starter"
-              target="_blank"
-              aria-label="github"
-            >
-              <GithubSvg role="img" alt="github" />
-            </IconLink>
-          </Footer>
         </Outer>
         <GradientBackground />
       </ThemeProvider>
