@@ -1,6 +1,10 @@
-## Richh Next Starter
+## richh.io
 
-An opinionated starter template.
+[Personal website](https://richh.io)
+
+---
+
+### Tech:
 
 - Next.js (v13)
 - React (v18)
