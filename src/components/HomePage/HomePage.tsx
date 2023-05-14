@@ -5,9 +5,10 @@ import GlobalMeta from "@/components/GlobalMeta";
 import { themeDark, themeLight } from "@/theme";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import GradientBackground from "@/components/GradientBackground";
-import { Header, IconGroup, IconLink, Main, Outer } from "./_components";
+import { Header, Main, IconGroup, IconLink } from "./_components";
 import GithubSvg from "@/images/github-icon.svg";
 import Tagline from "@/components/Tagline";
+import LogoAscii from "../LogoAscii";
 
 export default function Home() {
   const [theme, setTheme] = useState(themeLight);
@@ -29,30 +30,33 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Richh NextJS Starter</title>
-        <meta name="description" content="Richh NextJS Starter" />
+        <title>Richhhhhh</title>
+        <meta name="description" content="Richhhhhh" />
         <GlobalMeta />
       </Head>
+
       <ThemeProvider theme={theme}>
-        <Outer>
-          <Header>
-            <IconGroup>
-              <IconLink
-                href="https://github.com/richhdev"
-                target="_blank"
-                aria-label="github"
-              >
-                <GithubSvg role="img" alt="github" />
-              </IconLink>
-              <IconLink>
-                <ThemeSwitch callback={setThemeSwitch} />
-              </IconLink>
-            </IconGroup>
-          </Header>
-          <Main>
-            <Tagline text={"<Richh Nextjs Starter />"} />
-          </Main>
-        </Outer>
+        <Header>
+          <IconGroup>
+            <IconLink
+              href="https://github.com/richhdev"
+              target="_blank"
+              aria-label="github"
+            >
+              <GithubSvg role="img" alt="github" />
+            </IconLink>
+            <IconLink as="button" aria-labelledby="themeSwitchLabel">
+              <span className="sr-only">Change Theme</span>
+              <ThemeSwitch callback={setThemeSwitch} />
+            </IconLink>
+          </IconGroup>
+        </Header>
+
+        <Main>
+          <LogoAscii />
+          <Tagline text={"<FrontEndDeveloper />"} />
+        </Main>
+
         <GradientBackground />
       </ThemeProvider>
     </>

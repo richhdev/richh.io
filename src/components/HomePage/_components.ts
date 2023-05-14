@@ -2,34 +2,32 @@ import styled from "styled-components";
 import { clampBuilder } from "@/utils/clamp-generator";
 
 const clampDefault = { minWidth: "576px", maxWidth: "1200px", root: "16" };
-const padding = clampBuilder({
-  minFontSize: "16",
-  maxFontSize: "22",
-  ...clampDefault,
-});
-
-export const Outer = styled.div`
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
 export const Header = styled.div`
   position: fixed;
+  z-index: 2;
   width: 100%;
-  padding: ${padding};
+  padding: ${clampBuilder({
+    minFontSize: "16",
+    maxFontSize: "22",
+    ...clampDefault,
+  })};
   display: grid;
   place-items: end;
 `;
 
 export const Main = styled.div`
-  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  height: 100%;
   display: grid;
-  place-items: center;
+  place-content: center;
+  gap: ${clampBuilder({
+    minFontSize: "32",
+    maxFontSize: "100",
+    ...clampDefault,
+  })};
 `;
 
 export const IconGroup = styled.div`
@@ -46,6 +44,9 @@ const iconSize = clampBuilder({
 });
 
 export const IconLink = styled.a`
+  border: none;
+  background: none;
+
   width: ${iconSize};
   height: ${iconSize};
   padding: 8px;
@@ -65,9 +66,9 @@ export const IconLink = styled.a`
     height: 100%;
     position: relative;
     z-index: 2;
-  }
 
-  svg path {
-    fill: ${(props) => (props.theme.isDark ? "white" : "black")};
+    path {
+      fill: ${(props) => (props.theme.isDark ? "white" : "black")};
+    }
   }
 `;
